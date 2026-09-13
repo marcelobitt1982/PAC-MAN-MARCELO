@@ -13,9 +13,13 @@
             --bg-color: #000000;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            padding: 0;
+            padding: 10px;
             background-color: var(--bg-color);
             color: white;
             font-family: 'Press Start 2P', 'Courier New', monospace;
@@ -24,16 +28,16 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             touch-action: manipulation;
         }
 
         #game-title {
-            font-size: 24px;
+            font-size: clamp(16px, 5vw, 24px);
             font-weight: bold;
             text-transform: uppercase;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             background: linear-gradient(180deg, #fff700 0%, #ff8800 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -47,10 +51,19 @@
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(33, 33, 255, 0.4);
             background-color: black;
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         canvas {
             display: block;
+            width: 100%;
+            height: auto;
+            max-width: 480px;
+            aspect-ratio: 1 / 1;
         }
 
         #score-board {
@@ -58,8 +71,8 @@
             justify-content: space-between;
             width: 100%;
             max-width: 480px;
-            margin-top: 12px;
-            font-size: 12px;
+            margin-top: 10px;
+            font-size: clamp(9px, 2.5vw, 12px);
         }
 
         .info-box span {
@@ -69,18 +82,20 @@
 
         #controls {
             display: grid;
-            grid-template-columns: repeat(3, 70px);
-            grid-template-rows: repeat(2, 60px);
-            gap: 10px;
-            margin-top: 15px;
+            grid-template-columns: repeat(3, min(65px, 25vw));
+            grid-template-rows: repeat(2, min(55px, 20vw));
+            gap: 8px;
+            margin-top: 12px;
             justify-content: center;
+            width: 100%;
+            max-width: 480px;
         }
 
         .control-btn {
             background: rgba(255, 255, 255, 0.05);
             color: white;
             border: 2px solid var(--wall-glow);
-            font-size: 20px;
+            font-size: clamp(16px, 5vw, 20px);
             border-radius: 12px;
             cursor: pointer;
             display: flex;
